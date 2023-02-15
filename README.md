@@ -36,5 +36,77 @@
   - a valid precondition usually leads to a valid postcondition
 
 
+## 5.3 Testing and Debugging
 
+- Differences
+
+  - Teststng: detecting errors
+  - Debugging: diagonosing and correcting the root causes of detected errors 
   
+- What to do 
+
+  - Write sel-documentting code
+  - Comment to explain non-intuitive code
+  - Use meaningful names
+  - Break code into small functions
+  - Avoid complicated code sequences
+  - Use library facilities
+  
+- What no to do (when the program doesn't work)
+
+  - randomly look at the program
+  - change it to just "look" better 
+
+- Careful considerations (beginnings & ends)
+
+  - initialize every variable
+  - every value is reasonable & sensible
+  - the functions gets the right arguments
+  - the function returns the right value
+  - handle the first element correctly
+  - handle the last element correctly
+  - handle the empty case correctly
+  - open the files correctly
+  - the program reads the input 
+  - the program prints the output 
+
+- **Informal testing & debugging**
+
+  - add debug output statements to see what is printed out
+  - fix the plce with bad output
+
+- Asserts
+
+  > include cassert
+  - when the result is false, the program will print an error with filename and line number 
+  
+  - Code Example #1: Ensure reasonable output
+  > constexp int kLargestReasonable = 1000;
+  > int num_of_elements = -1;
+  > assert (kLargstReasonable >= number_of_elements);
+  > assert (num_of_elements > 0);
+  - Standard Output Example
+  "a.out: driver.cc:12: int main(): Assertion 'num_of_elements > 0' failed"
+  
+  - Code Example #2: Ensure post-conditions are met
+  > ...
+  > assert (result >= 0.0);
+  > return result;
+  
+- Asserts vs. Exceptions\
+
+  - assetions can help detect the errors, except
+  - trying to open an file that DNE
+  - incorrect/invalid arguments passed to our functions
+  
+- **Formal tests**
+
+  - Unit tests
+    
+    - written by programmers, for programmers
+    - test the system at the lowest level
+    - isolate from the more complete systems
+  
+  - Component tests
+  
+    - 
